@@ -9,6 +9,8 @@ In addition, TerribleChess will have an explanatory guide and custom sound effec
 
 For now, I only see TerribleChess needing Canvas for the rendering, webpack for bundling the code, npm to manage dependencies, and howler for sound management.
 
+Wireframe:
+https://wireframe.cc/ipLwuC
 
 Implementation timeline:
 
