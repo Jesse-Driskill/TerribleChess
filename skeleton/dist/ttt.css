@@ -1,0 +1,36 @@
+
+ul {
+  list-style-type: none;
+  display: flex;
+  width: 770px;
+  flex-wrap: wrap;
+  font-size: 60px;
+}
+
+ul > li {
+  border: solid 1px black;
+  padding: 20px;
+  background-color: rgb(172, 189, 189);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li:hover:not(.o, .x){
+  background-color: rgb(252, 204, 142);
+  cursor: pointer;
+}
+
+.o {
+  background-color: rgb(51, 253, 101);
+}
+
+.x {
+  background-color: rgb(231, 57, 57);
+}
+
+#foo {  
+  pointer-events: none;  
+}
