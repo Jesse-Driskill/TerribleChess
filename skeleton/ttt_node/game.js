@@ -16,6 +16,10 @@ class Game {
     this.swapTurn();
   }
 
+  // movePiece(pos) {
+
+  // }
+
   promptMove(reader, callback) {
     const game = this;
 
@@ -72,3 +76,16 @@ class Game {
 }
 
 module.exports = Game;
+
+// let newGame = new Game();
+// console.log(newGame.board.grid);
+// newGame.board.placeMark([0, 0], 'X');
+// newGame.board.placeMark([0, 1], 'X');
+// newGame.board.placeMark([0, 2], 'X');
+// newGame.board.placeMark([0, 3], 'X');
+// newGame.board.placeMark([0, 4], 'X');
+// newGame.board.placeMark([0, 5], 'X');
+// newGame.board.placeMark([0, 6], 'X');
+// newGame.board.placeMark([0, 7], 'X');
+// newGame.board.print();
+// console.log(newGame.winner());

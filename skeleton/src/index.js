@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   let game = new Game();
+  // game.run();
   let ele = document.getElementById('ttt');
   new View(game, ele);
   

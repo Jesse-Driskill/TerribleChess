@@ -35,8 +35,8 @@ class View {
           cells[i].setAttribute('draggable', 'true');
           this.game.playMove(pos);
 
-          if (this.game.board.winner() !== null) {
-            setTimeout( () => {alert(`Congratulations ${this.game.board.winner()}, you won!`)}, 2);
+          if (this.game.board.winner() != null) {
+            setTimeout( () => {alert(`Congratulations ${this.game.winner()}, you won!`)}, 2);
             // this.preventDefault();
             // e.stopPropagation();
 

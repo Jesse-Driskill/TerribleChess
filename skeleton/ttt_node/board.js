@@ -53,72 +53,55 @@ class Board {
   }
 
   winner() {
-    // const posSeqs = [
-    //   // horizontals
-    //   [[0, 0], [0, 1], [0, 2]],
-    //   [[1, 0], [1, 1], [1, 2]],
-    //   [[2, 0], [2, 1], [2, 2]],
-    //   // verticals
-    //   [[0, 0], [1, 0], [2, 0]],
-    //   [[0, 1], [1, 1], [2, 1]],
-    //   [[0, 2], [1, 2], [2, 2]],
-    //   // diagonals
-    //   [[0, 0], [1, 1], [2, 2]],
-    //   [[2, 0], [1, 1], [0, 2]]
-    // ];
-    const posSeqs = [];
-
-    for (let i = 0; i < 8; i++) {
-      for (let k = 0; k < 8; k++) {
-        posSeqs.push([i, k]);
-      }
+    if (this.winRows()) {
+      return this.winRows();
     }
-    for (let i = 0; i < 8; i++) {
-      for (let k = 0; k < 8; k++) {
-        posSeqs.push([k, i]);
-      }
-    }
-    for (let i = 0; i < 8; i++) {
-      posSeqs.push([i, i]);
-    }
-    for (let i = 7; i >= 0; i--) {
-      posSeqs.push([i, i]);
-    }
-
-    for (let i = 0; i < posSeqs.length; i++) {
-      const winner = this.winnerHelper(posSeqs[i]);
-      if (winner != null) {
-        return winner;
-      }
+    if (this.winCols()) {
+      return this.winCols();
     }
 
     return null;
   }
 
-  winnerHelper(posSeq) {
-    // for (let markIdx = 0; markIdx < Board.marks.length; markIdx++) {
-    //   const targetMark = Board.marks[markIdx];
-    //   let winner = true;
-    //   for (let posIdx = 0; posIdx < 8; posIdx++) {
-    //     const pos = posSeq[posIdx];
-    //     const mark = this.grid[pos[0]][pos[1]];
-
-    //     if (mark != targetMark) {
-    //       winner = false;
-    //     }
-    //   }
-
-    //   if (winner) {
-    //     return targetMark;
-    //   }
-    // }
-
-    for (let markIdx = 0; markIdx < Board.marks.length; markIdx++) {
-      const targetMark = Board.marks[markIdx];
-
+  winCols() {
+    for (let i = 0; i < this.grid.length; i++) {
+      let col = [];
+      for (let j = 0; j < this.grid.length; j++) {
+        col.push(this.grid[j][i])
+      }
+      let winner = col[0];
+      if (this.winRow(col)) {
+        return winner;
+      }
     }
 
-    return null;
+    return false;
+  }
+
+  // winCol() {
+
+  // }
+
+  winRows() {
+    for (let i = 0; i < this.grid.length; i++) {
+      let row = this.grid[i];
+      let winner = this.grid[i][0];
+      if (this.winRow(row)) {
+        return winner;
+      }
+    }
+
+    return false;
+  }
+
+  winRow(row) {
+    for (let i = 0; i < row.length; i++) {
+      if (row[i] === null || row[i] !== row[0]) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   static isValidPos(pos) {
