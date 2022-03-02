@@ -1,8 +1,84 @@
 const MoveError = require("./moveError");
 
+
+class Piece {
+  constructor(color) {
+      this.color = color;
+  }
+}
+
+
+class Pawn extends Piece {
+  hasMoved() {
+      this.hasMoved = true;
+  }
+
+}
+
+class Knight extends Piece {
+
+}
+
+class Rook extends Piece {
+
+}
+
+class King extends Piece {
+
+}
+
+class Cannon extends Piece {
+
+}
+
+class Bishop extends Piece {
+
+}
+
 class Board {
   constructor() {
     this.grid = Board.makeGrid();
+
+
+    // for (let i = 0; i < 8; i++) {
+    //   this.grid.push([]);
+    // }
+
+    for (let i = 0; i < 8; i++) {
+      this.placePiece(new Pawn('Black'), [1, i]);
+    }
+
+    this.placePiece(new Knight('Black'), [0, 1]);
+    this.placePiece(new Knight('Black'), [0, 6]);
+    this.placePiece(new Rook('Black'), [0, 0]);
+    this.placePiece(new Rook('Black'), [0, 7]);
+    this.placePiece(new Bishop('Black'), [0, 2]);
+    this.placePiece(new Bishop('Black'), [0, 5]);
+    this.placePiece(new King('Black'), [0, 4]);
+    this.placePiece(new Cannon('Black'), [0, 3]);
+
+    for (let i = 0; i < 8; i++) {
+      this.placePiece(new Pawn('White'), [6, i]);
+    }
+
+    this.placePiece(new Knight('White'), [7, 1]);
+    this.placePiece(new Knight('White'), [7, 6]);
+    this.placePiece(new Rook('White'), [7, 0]);
+    this.placePiece(new Rook('White'), [7, 7]);
+    this.placePiece(new Bishop('White'), [7, 2]);
+    this.placePiece(new Bishop('White'), [7, 5]);
+    this.placePiece(new King('White'), [7, 4]);
+    this.placePiece(new Cannon('Black'), [7, 3]);
+
+
+  }
+
+  getPiece(pos) {
+    return this.grid[pos[0]][pos[1]];
+  }
+
+  placePiece(piece, pos) {
+    this.grid[pos[0]][pos[1]] = piece;
   }
 
   isEmptyPos(pos) {
@@ -125,6 +201,11 @@ class Board {
   }
 }
 
+let sup = new Board();
+console.log(sup);
+
 Board.marks = ['x', 'o'];
 
 module.exports = Board;
+
+
