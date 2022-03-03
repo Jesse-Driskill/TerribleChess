@@ -1,10 +1,27 @@
 
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+}
+
 ul {
   list-style-type: none;
   display: flex;
   width: 770px;
   flex-wrap: wrap;
   font-size: 60px;
+  /* justify-content: center;
+  align-items: center;
+  text-align: center; */
+}
+
+.draggable:hover {
+  opacity: 0.4;
 }
 
 ul > li {
@@ -16,10 +33,12 @@ ul > li {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+
 }
 
 li:hover:not(.o, .x){
-  background-color: rgb(252, 204, 142);
+  background-color: rgb(173, 171, 180);
   cursor: pointer;
 }
 
@@ -31,6 +50,31 @@ li:hover:not(.o, .x){
   background-color: rgb(231, 57, 57);
 }
 
+.brown {
+  background-color: rgba(246, 250, 3, 0.979);
+}
+
+.light-brown {
+  background-color: rgb(21, 180, 219);
+}
+
+.checker-piece {
+  width: 65px;
+  height: 65px;
+}
+
 #foo {  
   pointer-events: none;  
 }
+
+img {
+  width: 86px;
+  height: 86px;
+  
+}
+
+.White.king {
+  width: 90px;
+  height: 90px;
+}
+

@@ -16,9 +16,9 @@ class Game {
     this.swapTurn();
   }
 
-  // movePiece(pos) {
-
-  // }
+  movePiece(currentPos, pos) {
+    
+  }
 
   promptMove(reader, callback) {
     const game = this;
