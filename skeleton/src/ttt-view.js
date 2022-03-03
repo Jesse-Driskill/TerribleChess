@@ -23,7 +23,9 @@ class View {
         let imgEle = document.createElement("img");
         imgEle.setAttribute('src', `${tempPos.img}`);
         imgEle.setAttribute('draggable', "true"); 
-        imgEle.setAttribute('class', `${tempPos.color} ${tempPos.id} draggable`)
+        imgEle.setAttribute('class', `${tempPos.color} ${tempPos.id} draggable`);
+        // imgEle.setAttribute('id', `${tempPos.color}-${tempPos.id}-${i}`);
+        imgEle.setAttribute('id', `p${i}`);
 
         cells[cells.length - 1].appendChild(imgEle);
       }
