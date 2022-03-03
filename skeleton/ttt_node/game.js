@@ -17,7 +17,11 @@ class Game {
   }
 
   movePiece(currentPos, pos) {
-    
+    console.log(currentPos);
+    console.log("hjsdi")
+    let piece = this.board.getPiece(currentPos);
+    this.board.grid[pos[0]][pos[1]] = piece;
+    this.board.grid[currentPos[0]][currentPos[1]] = null;
   }
 
   promptMove(reader, callback) {

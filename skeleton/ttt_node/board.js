@@ -17,6 +17,89 @@ class Checkers extends Piece {
 
 class Knight extends Piece {
 
+  getPossibleMoves(pos, board) {
+    console.log(pos);
+    let possible = [];
+
+    let it1 = pos[0];
+    let it2 = pos[1];
+
+    //pos[0] - 2 pos[1] + 1
+    //pos[0] - 2 pos[1] - 1
+
+    if (it1 > 1) {
+
+      if (it2 < 7) {
+        if (board.getPiece([it1 - 2, it2 + 1]) !== undefined) { // && board.getPiece([it1 - 2, it2 + 1]).color !== `${this.color}`) {
+          possible.push([it1 - 2, it2 + 1]);
+        }
+      }
+
+      if (it2 > 0) {
+        if (board.getPiece([it1 - 2, it2 - 1]) !== undefined) { //&& board.getPiece([it1 - 2, it2 - 1]).color !== `${this.color}`) {
+          possible.push([it1 - 2, it2 - 1]);
+        }
+      }
+    }
+    
+    //pos[0] + 2 pos[1] + 1
+    //pos[0] + 2 pos[1] - 1
+
+
+
+    if (it1 < 6) {
+      if (it2 < 7) {
+      if (board.getPiece([it1 + 2, it2 + 1]) !== undefined) {//&& board.getPiece([it1 + 2, it2 + 1]).color !== `${this.color}`) {
+        possible.push([it1 + 2, it2 + 1]);
+      }
+      }
+
+      if (it2 > 0) {
+        if (board.getPiece([it1 + 2, it2 - 1]) !== undefined) { // && board.getPiece([it1 + 2, it2 - 1]).color !== `${this.color}`) {
+          possible.push([it1 + 2, it2 - 1]);
+        }
+      }
+    }
+    //pos[1] - 2 pos[0] + 1
+    //pos[1] - 2 pos[0] - 1
+
+    if (it1 < 7) {
+
+      if (it2 < 6) {
+        if (board.getPiece([it1 + 1, it2 + 2]) !== undefined) { //&& board.getPiece([it1 + 1, it2 + 2]).color !== `${this.color}`) {
+          possible.push([it1 + 1, it2 + 2]);
+        }
+      }
+
+      if (it2 > 1) {
+        if (board.getPiece([it1 + 1, it2 - 2]) !== undefined) {//&& board.getPiece([it1 + 1, it2 - 2]).color !== `${this.color}`) {
+          possible.push([it1 + 1, it2 - 2]);
+        }
+      }
+    }
+
+    //pos[1] + 2 pos[0] + 1
+    //pos[1] + 2 pos[0] - 1
+
+    // if (it2 < 6) {
+      if (it1 > 0) {
+
+        if (it2 < 6) {
+          if (board.getPiece([it1 - 1, it2 + 2]) !== undefined) {//&& board.getPiece([it1 - 1, it2 + 2]).color !== `${this.color}`) {
+            possible.push([it1 - 1, it2 + 2]);
+          }
+        }
+
+        if (it2 > 1) {
+          if (board.getPiece([it1 - 1, it2 - 2]) !== undefined) { //&& board.getPiece([it1 - 1, it2 - 2]).color !== `${this.color}`) {
+            possible.push([it1 - 1, it2 - 2]);
+          }
+        }
+      }
+    // }
+
+    return possible;
+  }
 }
 
 class Rook extends Piece {
